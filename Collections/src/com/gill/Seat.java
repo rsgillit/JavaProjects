@@ -1,17 +1,23 @@
 package com.gill;
 
-public class Seat {
+public class Seat implements Comparable<Seat>{
     private final String seatNumber;
+    private double price;
     private boolean reserved = false;
 
 
-    public Seat(String seatNumber) {
+    public Seat(String seatNumber, double price) {
         this.seatNumber = seatNumber;
+        this.price = price;
     }
 
 
     public String getSeatNumber() {
         return seatNumber;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public boolean reserve() {
@@ -35,4 +41,9 @@ public class Seat {
     }
 
 
+    @Override
+    public int compareTo(Seat o) {
+        System.out.print(".");
+        return this.seatNumber.compareTo(o.getSeatNumber());
+    }
 }
